@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\MyController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,5 +55,18 @@ Route::get('/names/{name}', function ($name) {
 });
 
 //9.4
-Route::get('/pages/all', [PageController::class, 'showAll']);
 Route::get('/pages/show/{id}', [PageController::class, 'showOne']);
+Route::get('/show', [PostController::class, 'index']);
+
+Route::get('/', function () {
+    return view('child',['arr'=>[1,2]]);
+});
+
+//10.1, 10.2, 10.3
+Route::get('/method/{title}/{content}',[MyController::class,'method']);
+
+
+//MyProducts
+Route::get('/products',[ProductsController::class,'index']);
+Route::get('/products/show',[ProductsController::class, 'showManufacturers']);
+Route::get('/products/show/{id}',[ProductsController::class,'showProducts']);

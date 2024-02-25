@@ -28,7 +28,12 @@ class PostController extends Controller
                 "date" => "Дата создания поста"
             ]
         ];
-        return $posts;
+        return view('post.test', [
+            'var1' => '1',
+            'var2' => '2',
+            'title' => 'page title',
+            'text' => 'page content'
+        ]);
     }
     public function show($id)
     {
