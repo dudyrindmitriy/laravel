@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
@@ -66,7 +67,32 @@ Route::get('/', function () {
 Route::get('/method/{title}/{content}',[MyController::class,'method']);
 
 
+
+Route::get('employees',[EmployeesController::class,'main']);
+//13.1.2
+Route::get('employees/2',[EmployeesController::class,'method2']);
+//13.1.3
+Route::get('employees/3',[EmployeesController::class,'method3']);
+//13.1.4
+Route::get('employees/4',[EmployeesController::class,'method4']);
+//13.1.5
+Route::get('employees/5',[EmployeesController::class,'method5']);
+//13.1.6
+Route::get('employees/6',[EmployeesController::class,'method6']);
+//13.1.7
+Route::get('employees/7',[EmployeesController::class,'method7']);
+//13.1.8
+Route::get('employees/8',[EmployeesController::class,'method8']);
+//13.1.9
+Route::get('employees/9',[EmployeesController::class,'method9']);
+//13.1.10
+Route::get('employees/10',[EmployeesController::class,'method10']);
+
+
 //MyProducts
 Route::get('/products',[ProductsController::class,'index']);
 Route::get('/products/show',[ProductsController::class, 'showManufacturers']);
 Route::get('/products/show/{id}',[ProductsController::class,'showProducts']);
+
+
+Route::get('/list',[PostController::class,'show']);
