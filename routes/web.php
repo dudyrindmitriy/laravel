@@ -5,6 +5,7 @@ use App\Http\Controllers\MyController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -88,6 +89,17 @@ Route::get('employees/9',[EmployeesController::class,'method9']);
 //13.1.10
 Route::get('employees/10',[EmployeesController::class,'method10']);
 
+
+//13.2.2
+Route::get('users/2',[UsersController::class,'method2']);
+//13.2.3
+Route::get('users/3',[UsersController::class,'method3']);
+//13.2.4
+Route::get('users/4',[UsersController::class,'method4']);
+//13.2.5
+Route::get('users/5',[UsersController::class,'method5']);
+//13.2.delete
+Route::get('users/delete',[UsersController::class,'delete']);
 
 //MyProducts
 Route::get('/products',[ProductsController::class,'index']);
