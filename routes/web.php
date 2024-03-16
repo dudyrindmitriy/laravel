@@ -58,53 +58,65 @@ Route::get('/names/{name}', function ($name) {
 
 //9.4
 Route::get('/pages/show/{id}', [PageController::class, 'showOne']);
-Route::get('/show', [PostController::class, 'index']);
+//Route::get('/show', [PostController::class, 'index']);
 
 Route::get('/', function () {
-    return view('child',['arr'=>[1,2]]);
+    return view('child', ['arr' => [1, 2]]);
 });
 
 //10.1, 10.2, 10.3
-Route::get('/method/{title}/{content}',[MyController::class,'method']);
+Route::get('/method/{title}/{content}', [MyController::class, 'method']);
 
 
 
-Route::get('employees',[EmployeesController::class,'main']);
+Route::get('employees', [EmployeesController::class, 'main']);
 //13.1.2
-Route::get('employees/2',[EmployeesController::class,'method2']);
+Route::get('employees/2', [EmployeesController::class, 'method2']);
 //13.1.3
-Route::get('employees/3',[EmployeesController::class,'method3']);
+Route::get('employees/3', [EmployeesController::class, 'method3']);
 //13.1.4
-Route::get('employees/4',[EmployeesController::class,'method4']);
+Route::get('employees/4', [EmployeesController::class, 'method4']);
 //13.1.5
-Route::get('employees/5',[EmployeesController::class,'method5']);
+Route::get('employees/5', [EmployeesController::class, 'method5']);
 //13.1.6
-Route::get('employees/6',[EmployeesController::class,'method6']);
+Route::get('employees/6', [EmployeesController::class, 'method6']);
 //13.1.7
-Route::get('employees/7',[EmployeesController::class,'method7']);
+Route::get('employees/7', [EmployeesController::class, 'method7']);
 //13.1.8
-Route::get('employees/8',[EmployeesController::class,'method8']);
+Route::get('employees/8', [EmployeesController::class, 'method8']);
 //13.1.9
-Route::get('employees/9',[EmployeesController::class,'method9']);
+Route::get('employees/9', [EmployeesController::class, 'method9']);
 //13.1.10
-Route::get('employees/10',[EmployeesController::class,'method10']);
+Route::get('employees/10', [EmployeesController::class, 'method10']);
 
 
 //13.2.2
-Route::get('users/2',[UsersController::class,'method2']);
+Route::get('users/2', [UsersController::class, 'method2']);
 //13.2.3
-Route::get('users/3',[UsersController::class,'method3']);
+Route::get('users/3', [UsersController::class, 'method3']);
 //13.2.4
-Route::get('users/4',[UsersController::class,'method4']);
+Route::get('users/4', [UsersController::class, 'method4']);
 //13.2.5
-Route::get('users/5',[UsersController::class,'method5']);
+Route::get('users/5', [UsersController::class, 'method5']);
 //13.2.delete
-Route::get('users/delete',[UsersController::class,'delete']);
+Route::get('users/delete', [UsersController::class, 'delete']);
 
 //MyProducts
-Route::get('/products',[ProductsController::class,'index']);
-Route::get('/products/show',[ProductsController::class, 'showManufacturers']);
-Route::get('/products/show/{id}',[ProductsController::class,'showProducts']);
+Route::get('/products', [ProductsController::class, 'index']);
+Route::get('/products/show', [ProductsController::class, 'showManufacturers']);
+Route::get('/products/show/{id}', [ProductsController::class, 'showProducts']);
 
 
-Route::get('/list',[PostController::class,'show']);
+//Route::get('/list',[PostController::class,'show']);
+
+
+//14.1
+Route::get('/post/all', [PostController::class, 'getAll']);
+Route::get('/post/{id}', [PostController::class, 'getOne'])->where('id', '\d*');
+Route::get('post/all/{order?}/{dir?}',[PostController::class, 'getAll']);
+Route::get('/post/new',function () {
+    return view('post.newPost');
+});
+Route::post('/post/new',[PostController::class,'newPost']);
+Route::match(['get', 'post'], 'post/edit/{id}', [PostController::class,'editPost']);
+Route::get('/post/delete/{id}',[PostController::class,'delPost']);
